@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="memo.paaad.com.tracker.MainActivity">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/enter"/>
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1.5"
+      android:id="@+id/container2">
+
+  </FrameLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

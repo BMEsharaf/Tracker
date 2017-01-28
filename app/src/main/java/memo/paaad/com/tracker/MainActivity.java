@@ -9,13 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements OnNewObjectSelectedListener ,onObjectSelected {
+public class MainActivity extends AppCompatActivity implements OnNewObjectSelectedListener ,onObjectSelected , OnEnterFragmentListener {
 
     static String[] objectsNames ;
     listObjects listobjects ;
+    EnterFragment enterFragment ;
     FragmentManager fragmentManager ;
     FragmentTransaction fragmentTransaction ;
-    Button enterobject ;
     Dialogfragment dialogfragment ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +23,12 @@ public class MainActivity extends AppCompatActivity implements OnNewObjectSelect
         setContentView(R.layout.activity_main);
         // Define Name of object
         objectsNames = getResources().getStringArray(R.array.Object_names);
-// For Test purpose
-
+        enterFragment = new EnterFragment();
         dialogfragment = new Dialogfragment() ;
-        enterobject = (Button) findViewById(R.id.enter);
-        enterobject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               dialogfragment.show(getFragmentManager(),"Dialog");
-            }
-        });
         listobjects = new listObjects() ;
         fragmentManager = getFragmentManager() ;
         fragmentTransaction = fragmentManager.beginTransaction() ;
+        fragmentTransaction.add(R.id.container2,enterFragment);
         fragmentTransaction.add(R.id.container1,listobjects);
         fragmentTransaction.commit();
     }
@@ -48,5 +41,10 @@ public class MainActivity extends AppCompatActivity implements OnNewObjectSelect
     @Override
     public void IndexSelectedItem(int index) {
         Log.i("Debugging" , index+"");
+    }
+
+    @Override
+    public void onenterFragment() {
+        dialogfragment.show(getFragmentManager(),"Dialog");
     }
 }

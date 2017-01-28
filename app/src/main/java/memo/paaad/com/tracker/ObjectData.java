@@ -1,5 +1,7 @@
 package memo.paaad.com.tracker;
 
+import android.content.res.Resources;
+
 /**
  * Created by User on 1/27/2017.
  */
@@ -8,6 +10,7 @@ public class ObjectData {
     private String name ;
     private int  image ;
     private  boolean status ;
+
 
     ObjectData(String name ,int image , boolean status){
         this.name = name;

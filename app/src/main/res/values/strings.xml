@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Tracker</string>
+    <string name="Default">Laptop Bag</string>
+    <string-array name="Object_names">
+        <item>Laptop Bag</item>
+        <item>Wallet</item>
+        <item>Bag</item>
+        <item>Mobile</item>
+        <item>Keys</item>
+        <item>Bicycle</item>
+    </string-array>
 </resources>

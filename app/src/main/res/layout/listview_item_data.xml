@@ -5,23 +5,27 @@
     android:layout_height="match_parent">
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight=".5"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/object_image"/>
+        android:id="@+id/object_image"
+        android:focusable="false"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_gravity="top"
+        android:layout_gravity="center"
         android:layout_weight="2"
-        android:text="Laptop"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size"
+        android:text="@string/Default"
         android:id="@+id/object_name"/>
 <RadioButton
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:layout_weight=".5"
-    android:id="@+id/object_status"/>
+    android:id="@+id/object_status"
+    android:focusable="false"
+    />
 
 
 

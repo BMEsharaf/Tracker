@@ -2,6 +2,7 @@ package memo.paaad.com.tracker;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +26,11 @@ public class MycustomAdapter extends ArrayAdapter<ObjectData> {
         ImageView imageView ;
         RadioButton radioButton ;
     }
-    ArrayList<ObjectData> objects ;
+    ArrayList<ObjectData> objectDatas ;
     ViewHolder holder ;
     public MycustomAdapter(Context context, int resource, ArrayList<ObjectData> objects) {
         super(context, resource, objects);
-        this.objects = objects ;
+        objectDatas = objects ;
     }
 
     @NonNull
@@ -43,17 +44,17 @@ public class MycustomAdapter extends ArrayAdapter<ObjectData> {
             holder.textView = (TextView)convertView.findViewById(R.id.object_name);
             holder.imageView = (ImageView)convertView.findViewById(R.id.object_image);
             holder.radioButton = (RadioButton)convertView.findViewById(R.id.object_status);
+            holder.textView.setText(objectDatas.get(position).getName());
+            holder.imageView.setImageResource(objectDatas.get(position).getImage());
+            holder.radioButton.setChecked(objectDatas.get(position).isStatus());
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder)convertView.getTag();
-            holder.textView.setText(objects.get(position).getName());
-            holder.imageView.setImageResource(objects.get(position).getImage());
-            holder.radioButton.setChecked(objects.get(position).isStatus());
+            holder.textView.setText(objectDatas.get(position).getName());
+            holder.imageView.setImageResource(objectDatas.get(position).getImage());
+            holder.radioButton.setChecked(objectDatas.get(position).isStatus());
+            Log.i("Debugging","Position is "+position);
         }
         return convertView ;
-    }
-    void addObject (ObjectData objectData){
-        objects.add(0,objectData);
-        this.notifyDataSetChanged();
     }
 }
